@@ -1,0 +1,63 @@
+parameters:
+  - $ref: ../components/parameters/resourceId.yaml
+get:
+  tags:
+    - Сообщество
+  summary: Получить сообщество по ID
+  operationId: GetCommunity
+  description: |
+    Получить информацию о сообществе по ID
+  responses:
+    '200':
+      description: Информация о сообществе успешно получена
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Community.yaml
+    '401':
+      description: Отказано в доступе
+    '404':
+      description: Не найдено
+put:
+  tags:
+    - Сообщество
+  summary: Создать или изменить сообщество по ID
+  operationId: PutCommunity
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Community.yaml
+      description: Community resource
+      required: false
+  responses:
+    '201':
+      description: Сообщество было создано
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Community.yaml
+    '401':
+      description: Отказано в доступе
+    '404':
+      description: Не найдено
+    '409':
+      description: Сообщество существует и не может быть обновлен
+    '422':
+      description: Неверные данные
+delete:
+  tags:
+    - Сообщество
+  summary: Удалить сообщество по ID
+  operationId: DeleteCommunity
+  description: |
+    Удалить сообщество по ID
+  responses:
+    '204':
+      description: Сообщество было удалено
+    '401':
+      description: Отказано в доступе
+    '402':
+      description: Не можеть быть удалено
+    '404':
+      description: Не найдено

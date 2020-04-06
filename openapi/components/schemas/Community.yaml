@@ -1,0 +1,40 @@
+type: object
+properties:
+  id:
+    description: Идентификатор сообщества
+    allOf:
+      - $ref: ./ResourceId.yaml
+    readOnly: true
+  communityName:
+    description: Наименование сообщества
+    type: string
+    maxLength: 70
+  communityDescription:
+    description: Описание сообщества
+    type: string
+  tags:
+    description: Тэги для фильтрации
+    type: array
+  createdTime:
+    description: Время создания сообщества
+    allOf:
+      - $ref: ./ServerTimestamp.yaml
+  updatedTime:
+    description: Время обновления сообщества
+    allOf:
+      - $ref: ./ServerTimestamp.yaml
+  administratorsId:
+    description: Идентификаторы администрации
+    allOf:
+      - $ref: ./ResourceId.yaml
+    readOnly: true
+  communityMembers:
+    description: Идентификаторы участников сообщества
+    allOf:
+      - $ref: ./ResourceId.yaml
+    readOnly: true
+#        administratorsId:
+#          description: Идентификаторы администрации
+#          allOf:
+#            - $ref: ./ResourceId.yaml
+#          readOnly: true

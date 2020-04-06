@@ -1,0 +1,44 @@
+get:
+  tags:
+    - Сообщество
+  summary: Получить информацию о сообществах
+  operationId: GetCommunities
+  description: |
+    Получить информацию о сообществах
+  responses:
+    '200':
+      description: Информация о сообществах была успешно получена
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/Community.yaml
+    '401':
+      description: Отказано в доступе
+#      $ref: ../components/responses/AccessForbidden.yaml
+post:
+  tags:
+    - Сообщество
+  summary: Создать новое сообщество
+  operationId: CreatePost
+  description: |
+    Создать новое сообщество
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Community.yaml
+      description: Community resource
+      required: true
+  responses:
+    '200':
+      description: Сообщество было успешно созданно
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Community.yaml
+    '401':
+      description: Отказано в доступе
+    '422':
+      description: Неверные данные
