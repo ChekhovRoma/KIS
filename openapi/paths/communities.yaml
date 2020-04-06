@@ -2,7 +2,7 @@ get:
   tags:
     - Сообщество
   summary: Получить информацию о сообществах
-  operationId: GetCommunities
+  operationId: GetAllCommunities
   description: |
     Получить информацию о сообществах
   responses:
@@ -21,7 +21,7 @@ post:
   tags:
     - Сообщество
   summary: Создать новое сообщество
-  operationId: CreatePost
+  operationId: CreateCommunity
   description: |
     Создать новое сообщество
   requestBody:

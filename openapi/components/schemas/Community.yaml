@@ -30,7 +30,8 @@ properties:
     readOnly: true
   communityMembers:
     description: Идентификаторы участников сообщества
-    allOf:
+    type: array
+    items:
       - $ref: ./ResourceId.yaml
     readOnly: true
 #        administratorsId:
